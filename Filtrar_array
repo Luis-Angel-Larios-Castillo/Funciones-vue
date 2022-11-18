@@ -1,0 +1,47 @@
+// FUNCION PARA FILTRAR DATOS EN ARRAY
+
+<v-card v-for="(item, i) in filterCompromisos" :key ="i" class="py-0" color="celeste">
+						<v-btn  dark absolute bottom :color="colores[item.estatus]" right fab small @click="editar(item)" > 
+							<v-icon> mdi-eye </v-icon>
+						</v-btn>
+						
+						<v-card  class="mt-6 pa-1 elevation-10" :color="colores[item.estatus]" >
+							<v-card flat>
+								<v-card-text class="py-1"><span class="font-weight-bold"> COMPROMISO:  </span> {{ item.id }}  </v-card-text>
+								<v-card-text class="py-1"><span class="font-weight-bold"> CLIENTE:  </span> {{ item.nomcli }}  </v-card-text>
+								<v-card-text class="py-1"><span class="font-weight-bold"> FECHA:    </span> {{  moment(item.fecha).format('LL') }}   </v-card-text>
+								<v-card-text class="py-1"><span class="font-weight-bold"> HORA:     </span> {{ item.hora >='12:00'? item.hora +' '+'pm': item.hora+ ' '+'am' }} </v-card-text>
+								<v-card-text class="py-1"><span class="font-weight-bold"> CATEGORÍA:</span> {{ item.nomcatego }}  </v-card-text>
+
+								<v-card-actions class="pa-1">
+
+								</v-card-actions>
+							</v-card>
+						</v-card>
+				</v-card>
+        
+        <script>
+        computed:{
+        	filterCompromisos: function(){
+          //get compromisos trae la data del array
+              return this.getCompromisos.filter((comp)=>{
+                var data = comp.nomcli.toLowerCase(); // BUSCAR POR PROVEDOR
+                var data_id = comp.id.toString(); // BUSCAR POR PROVEDOR
+                let otra_data = data.match(this.search.toLowerCase());
+                let otra_id = data_id.match(this.search.toString());
+                if (otra_data) {
+                return otra_data;
+                } else if (otra_id) {
+                return otra_id;
+                }
+              })
+              /* 	return this.getCompromisos.filter((comp)=>{
+                  if(comp.nomcli){
+                    let data = comp.nomcli.toLowerCase(); // BUSCAR POR PROVEDOR
+                    return data.match(this.search.toLowerCase())
+                  }
+
+              })  */
+            },
+        }
+        <script>
