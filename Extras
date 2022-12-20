@@ -1,0 +1,32 @@
+
+ruta de archivo -> C:\Windows\System32\drivers\etc/host
+Buscar Virtual Host en xammp
+
+
+
+FUNCION DE ELIMINAR DUPLICADOS DE UN ARRAY
+       let suc = {};
+        sucursales_save = sucursales_save.filter((o) =>
+          suc[o.id] ? false : (suc[o.id] = true)
+        );
+
+
+FUNCION PARA BUSCAR COINCIDENCIAS DENTRO DE UN ARRAY
+
+  let find = clientes_dupl.filter(
+              (item) => item.id_cliente == element.id_cliente
+            );
+
+            if(find.length==0){
+              clientes_dupl.push(element)
+            }
+
+
+
+CONFIFURACION DE SERVIDORES 
+
+ACTIVAR IIS 
+DESCARGAR PAQUETES PARA INSTALAR LENGUAJES DE PROGRAMACION
+DESCARGAR MOTOR DE BASES DE DATOS COMPATIBLES CON IIS
+DESCARGAR Y CONFIGURAR PHPMYADMIN PARA IIS
+CONFIGURAR DOMINIO CON CLOUDFIRE
